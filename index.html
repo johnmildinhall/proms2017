@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://use.typekit.net/txs2bmu.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <style>
+  body{
+    background-color: #070E2D;
+    color:white;
+    font-family: "garamond-premier-pro";
+  }
+  h1{
+    font-family: "paralucent-stencil";
+    font-size:5em;
+    margin-bottom:0;
+  }
+  h2{
+    margin-top:0;
+    font-size:2em;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  a{
+    color:white;
+  }
+  p{
+    font-size:1.5em;
+  }
+  .spacer{
+    margin:2em 0 5em 0;
+  }
+  .headline{
+    width:500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .vis{
+    position: relative;
+    width:960px;
+    margin: 0 auto;
+  }
+  .footnotes{
+    font-size: .75em;
+    text-align: left;
+  }
+
+  .node {
+    cursor: pointer;
+  }
+
+  .node:hover {
+    stroke: #000;
+    stroke-width: 1.5px;
+  }
+
+  .node--leaf {
+    fill: white;
+  }
+
+  .label {
+    font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-anchor: middle;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  }
+
+  .label,
+  .node--root,
+  .node--leaf {
+    pointer-events: none;
+  }
+</head>
+<body>
+  </style>
+  <div class="headline">
+    <h1>
+      2017 Proms
+    </h1>
+    <h2>
+       All the composers
+    </h2>
+    <p>It's Prom time again, so we at Falala thought we'd have delve into which composers are being played. You can click or tap on different circles to zoom in and out.</p>
+  </div>
+  <div class="vis">
+    <svg width="960" height="960"></svg>
+  </div>
+  <div class="headline">
+    <p>Romantic composers are once again hugely popular, with Classical era composers perhaps being slightly under-represented.</p>
+    <p>The most popular<sup>1</sup> composers who aren't there? Verdi, Satie, Puccini, Scarlatti and Telemann.</p>
+    <p class="spacer">You can keep track of the Proms concerts on <a href="http://www.falala.co/concerts">falala</a>, where we organise the world of classical music.</p>
+    <p class="footnotes"><sup>1</sup> According to Spotify</p>
+    <p class="footnotes">Massive props to <a href="https://twitter.com/mbostock
+">Mike Bostok</a>, co-creator of D3, and originator of this circle packing visualisation. Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3</a></p>
+  </div>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+
+  var svg = d3.select("svg"),
+      margin = 20,
+      diameter = +svg.attr("width"),
+      g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+  var color = d3.scaleLinear()
+      .domain([-1, 5])
+      .range(["hsl(227,74%,10%)", "hsl(302,100%,47%)"])
+      .interpolate(d3.interpolateHcl);
+
+  var pack = d3.pack()
+      .size([diameter - margin, diameter - margin])
+      .padding(2);
+
+  d3.json("proms-composers.json", function(error, root) {
+    if (error) throw error;
+
+    root = d3.hierarchy(root)
+        .sum(function(d) { return d.size; })
+        .sort(function(a, b) { return b.value - a.value; });
+
+    var focus = root,
+        nodes = pack(root).descendants(),
+        view;
+
+    var circle = g.selectAll("circle")
+      .data(nodes)
+      .enter().append("circle")
+        .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
+        .style("fill", function(d) { return d.children ? color(d.depth) : null; })
+        .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
+
+    var text = g.selectAll("text")
+      .data(nodes)
+      .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
+        .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
+        .text(function(d) { return d.data.name; });
+
+    var node = g.selectAll("circle,text");
+
+    svg
+        .style("background", color(-1))
+        .on("click", function() { zoom(root); });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+    function zoom(d) {
+      var focus0 = focus; focus = d;
+
+      var transition = d3.transition()
+          .duration(d3.event.altKey ? 7500 : 750)
+          .tween("zoom", function(d) {
+            var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+            return function(t) { zoomTo(i(t)); };
+          });
+
+      transition.selectAll("text")
+        .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+          .style("fill-opacity", function(d) { return d.parent === focus ? 1 : 0; })
+          .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
+          .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+    }
+
+    function zoomTo(v) {
+      var k = diameter / v[2]; view = v;
+      node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+      circle.attr("r", function(d) { return d.r * k; });
+    }
+  });
+
+  </script>
+</body>

@@ -1,0 +1,412 @@
+{
+   "name":"composers",
+   "children":[
+      {
+         "name":"Modernist",
+         "children":[
+            {
+               "name":"Russian",
+               "children":[
+                  {
+                     "name":"Dimitri Shostakovich",
+                     "size":3
+                  }
+               ]
+            },
+            {
+               "name":"English",
+               "children":[
+                  {
+                     "name":"Benjamin Britten",
+                     "size":3
+                  },
+                  {
+                     "name":"William Walton",
+                     "size":2
+                  }                  
+               ]
+            }, 
+            {
+               "name":"Austrian",
+               "children":[
+                  {
+                     "name":"Erich Wolfgang Korngold",
+                     "size":1
+                  }
+               ]
+            }           
+         ]
+      },
+      {
+         "name":"Modern",
+         "children":[
+            {
+               "name":"English",
+               "children":[
+                  {
+                     "name":"Tom Coult",
+                     "size":1
+                  },
+                  {
+                     "name":"Sir Harrison Birtwistle",
+                     "size":1
+                  },
+                  {
+                     "name":"Julian Anderson",
+                     "size":1
+                  },
+                  {
+                     "name":"Mark Simpson",
+                     "size":1
+                  },
+                  {
+                     "name":"David Sawer",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"American",
+               "children":[
+                  {
+                     "name":"John Adams",
+                     "size":4
+                  },
+                  {
+                     "name":"John Williams",
+                     "size":1
+                  },
+                  {
+                     "name":"Aaron Copland",
+                     "size":2
+                  }
+               ]
+            },
+            {
+               "name":"French",
+               "children":[
+                  {
+                     "name":"Claude Pascal",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Swedish",
+               "children":[
+                  {
+                     "name":"Anders Hillborg",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Scottish",
+               "children":[
+                  {
+                     "name":"Sir James MacMillan",
+                     "size":1
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"Classical",
+         "children":[
+            {
+               "name":"German",
+               "children":[
+                  {
+                     "name":"Ludwig van Beethoven",
+                     "size":9
+                  }
+               ]
+            },
+            {
+               "name":"Italian",
+               "children":[
+                  {
+                     "name":"Gioachino Rossini",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Austrian",
+               "children":[
+                  {
+                     "name":"Franz Schubert",
+                     "size":1
+                  },
+                  {
+                     "name":"Franz Joseph Haydn",
+                     "size":2
+                  },
+                  {
+                     "name":"Wolfgang Amadeus Mozart",
+                     "size":6
+                  }
+               ]
+            },
+            {
+               "name":"English",
+               "children":[
+                  {
+                     "name":"Thomas Arne",
+                     "size":1
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"Romantic",
+         "children":[
+            {
+               "name":"Austrian",
+               "children":[
+                  {
+                     "name":"Johann Strauss II",
+                     "size":1
+                  },
+                  {
+                     "name":"Anton Bruckner",
+                     "size":1
+                  },
+                  {
+                     "name":"Gustav Mahler",
+                     "size":5
+                  }
+               ]
+            },
+            {
+               "name":"French",
+               "children":[
+                  {
+                     "name":"Hector Berlioz",
+                     "size":3
+                  }
+               ]
+            },
+            {
+               "name":"German",
+               "children":[
+                  {
+                     "name":"Felix Mendelssohn",
+                     "size":2
+                  },
+                  {
+                     "name":"Robert Schumann",
+                     "size":4
+                  },
+                  {
+                     "name":"Richard Wagner",
+                     "size":1
+                  },
+                  {
+                     "name":"Richard Strauss",
+                     "size":3
+                  },
+                  {
+                     "name":"Johannes Brahms",
+                     "size":5
+                  }
+               ]
+            },
+            {
+               "name":"Hungarian",
+               "children":[
+                  {
+                     "name":"Franz Liszt",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Czech",
+               "children":[
+                  {
+                     "name":"BedÅ™ich Smetana",
+                     "size":1
+                  },
+                  {
+                     "name":"David Popper",
+                     "size":1
+                  },
+                  {
+                     "name":"Josef Suk",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Russian",
+               "children":[
+                  {
+                     "name":"Modest Mussorgsky",
+                     "size":2
+                  },
+                  {
+                     "name":"Pyotr Ilyich Tchaikovsky",
+                     "size":3
+                  },
+                  {
+                     "name":"Sergei Taneyev",
+                     "size":1
+                  },
+                  {
+                     "name":"Sergei Rachmaninoff",
+                     "size":5
+                  },
+                  {
+                     "name":"Nikolai Rimsky-Korsakov",
+                     "size":3
+                  }
+               ]
+            },
+            {
+               "name":"English",
+               "children":[
+                  {
+                     "name":"John Stainer",
+                     "size":1
+                  },
+                  {
+                     "name":"Hubert Parry",
+                     "size":1
+                  },
+                  {
+                     "name":"Frederick Delius",
+                     "size":1
+                  },
+                  {
+                     "name":"Ralph Vaughan Williams",
+                     "size":1
+                  },
+                  {
+                     "name":"Gustav Holst",
+                     "size":2
+                  },
+                  {
+                     "name":"Edward Elgar",
+                     "size":7
+                  }
+               ]
+            },
+            {
+               "name":"Norwegian",
+               "children":[
+                  {
+                     "name":"Edvard Grieg",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Finnish",
+               "children":[
+                  {
+                     "name":"Jean Sibelius",
+                     "size":6
+                  }
+               ]
+            },
+            {
+               "name":"Spanish",
+               "children":[
+                  {
+                     "name":"Manuel de Falla",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Italian",
+               "children":[
+                  {
+                     "name":"Ottorino Respighi",
+                     "size":3
+                  }
+               ]
+            },
+            {
+               "name":"Danish",
+               "children":[
+                  {
+                     "name":"Carl Nielsen",
+                     "size":1
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"Impressionist",
+         "children":[
+            {
+               "name":"French",
+               "children":[
+                  {
+                     "name":"Claude Debussy",
+                     "size":1
+                  },
+                  {
+                     "name":"Maurice Ravel",
+                     "size":2
+                  },
+                  {
+                     "name":"Camille Saint-Saëns",
+                     "size":2
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"Baroque",
+         "children":[
+            {
+               "name":"French",
+               "children":[
+                  {
+                     "name":"FranÃ§ois Rebel",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"Italian",
+               "children":[
+                  {
+                     "name":"Claudio Monteverdi",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"English",
+               "children":[
+                  {
+                     "name":"Henry Purcell",
+                     "size":1
+                  }
+               ]
+            },
+            {
+               "name":"German",
+               "children":[
+                  {
+                     "name":"George Friedrich Handel",
+                     "size":2
+                  },
+                  {
+                     "name":"Johann Sebastian Bach",
+                     "size":6
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
